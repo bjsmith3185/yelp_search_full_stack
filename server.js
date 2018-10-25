@@ -32,7 +32,8 @@ require("dotenv").config();
 
 // Routes
 // require("./routes/apiRoutes")(app);
-require("./routes/handlebarsRoutes")(app);
+require("./routes/hbs-routes")(app);
+require("./routes/api-routes")(app);
 
 
 // Helper

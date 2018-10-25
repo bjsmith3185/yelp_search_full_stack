@@ -7,6 +7,7 @@
       <div class="col-8 offset-2">
 
         <h2>{{msg}}</h2>
+        <a href="/">Search Page</a>
        
 
       </div>
@@ -61,7 +62,12 @@
   var long = {{ long }};
 
 
-  $.get("/all/marker", function (data) {
+  
+
+
+
+  function initMap() {
+$.get("/all/marker", function (data) {
     console.log("inside the get request for /all/marker");
     console.log(data)
     var locations = [];
@@ -94,36 +100,6 @@
 
   });
 
-
-
-  function initMap() {
-
-
-    console.log(locations);
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 14,
-      center: new google.maps.LatLng(35.2271, -80.843124),
-
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function (marker, i) {
-        return function () {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
   }
 
 

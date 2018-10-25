@@ -19,9 +19,7 @@ module.exports = function (app) {
            
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
-              console.log("inside /result")
-              console.log(data[0].dataValues.lat);
-              console.log(data[0].dataValues.long);
+              console.log("inside /list")
               console.log(process.env.GOOGLE_API_KEY)
            
             res.render("list", {
@@ -42,7 +40,7 @@ module.exports = function (app) {
             },
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
-              console.log("inside /result")
+              console.log("inside /map")
               console.log(data[0].dataValues.lat);
               console.log(data[0].dataValues.long);
               console.log(process.env.GOOGLE_API_KEY)
@@ -63,13 +61,13 @@ module.exports = function (app) {
     // combo page, combo.handlbars
     app.get("/combo", function (req, res) {
         db.Yelps.findAll({
-            limit: 1,
-            where: {
-              //your where conditions, or without them if you need ANY entry
-            },
+            // limit: 1,
+            // where: {
+            //   //your where conditions, or without them if you need ANY entry
+            // },
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
-              console.log("inside /result")
+              console.log("inside /combo")
               console.log(data[0].dataValues.lat);
               console.log(data[0].dataValues.long);
               console.log(process.env.GOOGLE_API_KEY)

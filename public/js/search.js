@@ -20,22 +20,23 @@
   
   $("#submit").on("click", function (e) {
     e.preventDefault();
+
     var data = {
       truck: $("#foodTruckName").val().trim()
     };
   
   
   
-    $.ajax("/api/truck", {
+    $.ajax("/api/search", {
       type: "post",
       data: data
     }).then(function (data, err) {
-      console.log("RESPONSE.yelp~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-      console.log(data);
+      console.log("sent to database, re routed to /combo ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+      // console.log(data);
 
       // initMap(response.lat, response.long)
-      location.assign("/all");
-  ;
+      location.assign("/combo");
+  
       
       
   
