@@ -1,0 +1,145 @@
+{{!--
+<script src="/js/yelp_search.js"></script> --}}
+
+
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+
+        <h2>{{msg}}</h2>
+        <h3>{{info}}</h3>
+
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-4">
+        <div id="map"></div>
+
+      </div>
+      <div class="col-8 text-center">
+        <div class="result-title">Search Results:</div>
+        <div>
+          {{#each data}}
+          <div>{{this.name}}</div>
+          <span>Rating: {{this.rating}}, </span>
+          <span>Price: {{this.price}}, </span>
+          <span> Phone: {{this.phone}}, </span>
+          <div class="image-area">
+            <image id="recent-image" src='{{this.image_url}}'></image>
+          </div>
+
+          <a href='{{this.url}}'>business website</a>
+          <div>{{this.street}}</div>
+          <span>{{this.city}}, </span>
+          <span>{{this.state}}, </span>
+          <span>{{this.zip}}</span>
+          {{/each}}
+        </div>
+
+
+
+
+        <div id="results" class="text-center"></div>
+
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-8 offset-2">
+
+
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<script type="text/javascript" src="js/search.js"></script>
+
+
+
+<script async defer src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap"></script>
+
+<script>
+  var lat = {{ lat }};
+  var long = {{ long }};
+
+
+  $.get("/all/marker", function (data) {
+    console.log("inside the get request for /all/marker");
+    console.log(data)
+    var locations = [];
+    locations = data;
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 12,
+      center: new google.maps.LatLng(35.2271, -80.843124),
+
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+
+
+  });
+
+
+
+  function initMap() {
+
+
+    console.log(locations);
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: new google.maps.LatLng(35.2271, -80.843124),
+
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function (marker, i) {
+        return function () {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+  }
+
+
+
+
+
+
+</script>
+

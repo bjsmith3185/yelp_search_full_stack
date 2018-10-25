@@ -1,0 +1,80 @@
+
+
+
+<div id="home">
+  <div class="container">
+    <div class="row">
+      <div class="col-8 offset-2">
+
+        <h2>{{msg}}</h2>
+        <form class="clearfix mb-4" action="">
+
+          <div class="form-group">
+            <label for="example-description">Enter search</label>
+            <input class="form-control" id="foodTruckName" aria-describedby="example-description" placeholder="Enter food truck name"></input>
+          </div>
+          {{!-- <a href="/api/results" id="submit">Submit</a> --}}
+          <button id="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-4">
+        <div id="map"></div>
+        <div>{{data.info}}</div>
+      </div>
+      <div class="col-8 text-center">
+        <div class="result-title">Search Results:</div>
+  
+        <div class="result-area text-center">
+          <div>{{data.name}}</div>
+          <div>{{data.image_url}}</div>
+          <div>{{data.category}}</div>
+          <div>{{data.rating}}</div>
+          <div>{{data.reviewCount}}</div>
+          <div>{{data.price}}</div>
+          <div>{{data.phone}}</div>
+        </div>
+
+
+
+        <div id="results" class="text-center"></div>
+
+      </div>
+    </div>
+
+    <br>
+    <div class="row">
+      <div class="col-8 offset-2">
+
+
+       
+
+      </div>
+    </div>
+
+
+  </div>
+</div>
+<script type="text/javascript" src="js/search.js"></script>
+
+{{!-- <script>
+
+
+  $("#submit").on("click", function (e) {
+        e.preventDefault();
+    var data = {
+      truck: $("#foodTruckName").val().trim()
+    };
+
+
+    $.ajax("/api/truck", {
+      type: "post",
+      data: data
+    }).then(function (data) {
+console.log(data)
+    })
+  });
+</script> --}}
