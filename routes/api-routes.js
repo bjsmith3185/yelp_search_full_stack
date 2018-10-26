@@ -18,7 +18,7 @@ module.exports = function (app) {
                 var newArray = [];
                 newArray.push(data[k].dataValues.name);
                 newArray.push(data[k].dataValues.lat);
-                newArray.push(data[k].dataValues.long);
+                newArray.push(data[k].dataValues.lng);
 
                 searchArray.push(newArray);
             }
