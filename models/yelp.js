@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     closed: DataTypes.BOOLEAN,
     url: DataTypes.TEXT,
     lat: DataTypes.TEXT,
-    lng: DataTypes.TEXT,
+    long: DataTypes.TEXT,
     street: DataTypes.TEXT,
     city: DataTypes.TEXT,
     zip: DataTypes.TEXT,

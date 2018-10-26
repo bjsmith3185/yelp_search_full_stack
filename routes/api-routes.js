@@ -18,7 +18,7 @@ module.exports = function (app) {
                 var newArray = [];
                 newArray.push(data[k].dataValues.name);
                 newArray.push(data[k].dataValues.lat);
-                newArray.push(data[k].dataValues.lng);
+                newArray.push(data[k].dataValues.long);
 
                 searchArray.push(newArray);
             }
@@ -47,7 +47,7 @@ module.exports = function (app) {
                 closed: response.closed,
                 url: response.url,
                 lat: response.lat,
-                lng: response.lng,
+                long: response.long,
                 street: response.street,
                 city: response.city,
                 zip: response.zip,
