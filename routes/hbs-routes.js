@@ -1,5 +1,5 @@
 var db = require("../models");
-var yelpApi = require("../helper/yelpAPIcall");
+
 
 
 module.exports = function (app) {
@@ -20,7 +20,7 @@ module.exports = function (app) {
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
               console.log("inside /list")
-              console.log(process.env.GOOGLE_API_KEY)
+            //   console.log(process.env.GOOGLE_API_KEY)
            
             res.render("list", {
                 info: "Search results by list.",
@@ -34,16 +34,13 @@ module.exports = function (app) {
     //  map page, map.handlebars
     app.get("/map", function (req, res) {
         db.Yelps.findAll({
-            limit: 1,
-            where: {
-              //your where conditions, or without them if you need ANY entry
-            },
+           
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
               console.log("inside /map")
-              console.log(data[0].dataValues.lat);
-              console.log(data[0].dataValues.long);
-              console.log(process.env.GOOGLE_API_KEY)
+            //   console.log(data[0].dataValues.lat);
+            //   console.log(data[0].dataValues.long);
+            //   console.log(process.env.GOOGLE_API_KEY)
            
             res.render("map", {
                 key: process.env.GOOGLE_API_KEY,
@@ -68,9 +65,9 @@ module.exports = function (app) {
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
               console.log("inside /combo")
-              console.log(data[0].dataValues.lat);
-              console.log(data[0].dataValues.long);
-              console.log(process.env.GOOGLE_API_KEY)
+            //   console.log(data[0].dataValues.lat);
+            //   console.log(data[0].dataValues.long);
+            //   console.log(process.env.GOOGLE_API_KEY)
            
             res.render("combo", {
                 key: process.env.GOOGLE_API_KEY,
@@ -88,4 +85,34 @@ module.exports = function (app) {
 
 };
 
+
+
+
+
+// to show only the last search
+
+//  //  map page, map.handlebars
+//  app.get("/map", function (req, res) {
+//     db.Yelps.findAll({
+//         limit: 1,
+//         where: {
+//           //your where conditions, or without them if you need ANY entry
+//         },
+//         order: [ [ 'createdAt', 'DESC' ]]
+//       }).then(function (data) {
+//           console.log("inside /map")
+//           console.log(data[0].dataValues.lat);
+//           console.log(data[0].dataValues.long);
+//           console.log(process.env.GOOGLE_API_KEY)
+       
+//         res.render("map", {
+//             key: process.env.GOOGLE_API_KEY,
+//             lat: data[0].dataValues.lat,
+//             long: data[0].dataValues.long,
+//             info: "Each pin is a search result.",
+//             msg: "This is the map results page!",
+//             data: data,
+//         });
+//       });
+// })
 

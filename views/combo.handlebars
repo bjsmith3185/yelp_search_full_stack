@@ -1,6 +1,3 @@
-
-
-
 <div id="home">
   <div class="container">
     <div class="row">
@@ -8,19 +5,24 @@
 
         <h2>{{msg}}</h2>
         <a href="/">Search Page</a>
-       
+        <span> || </span>
+        <a href="/list">Show results as a list</a>
+        <span> || </span>
+        <a href="/map">Show results on a map</a>
+        <span> || </span>
+        <a href="/combo">show results on both map and list</a>
 
       </div>
     </div>
     <br>
     <div class="row">
       <div class="col-4">
-          <h3>{{mapTitle}}</h3>
+        <h3>{{mapTitle}}</h3>
         <div id="map"></div>
 
       </div>
       <div class="col-8 text-center">
-         <h3>{{listTitle}}</h3>
+        <h3>{{listTitle}}</h3>
         <div>
           {{#each data}}
           <div>{{this.name}}</div>
@@ -47,64 +49,14 @@
       </div>
     </div>
 
-  
+
 
   </div>
 </div>
-<script type="text/javascript" src="js/search.js"></script>
+{{!--
+<script type="text/javascript" src="js/search.js"></script> --}}
+<script type="text/javascript" src="js/combo.js"></script>
 
 
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key={{key}}&callback=initMap"></script>
-
-<script>
-  var lat = {{ lat }};
-  var long = {{ long }};
-
-
-  
-
-
-
-  function initMap() {
-$.get("/all/marker", function (data) {
-    console.log("inside the get request for /all/marker");
-    console.log(data)
-    var locations = [];
-    locations = data;
-
-    var map = new google.maps.Map(document.getElementById('map'), {
-      zoom: 12,
-      center: new google.maps.LatLng(35.2271, -80.843124),
-
-    });
-
-    var infowindow = new google.maps.InfoWindow();
-
-    var marker, i;
-
-    for (i = 0; i < locations.length; i++) {
-      marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-        map: map
-      });
-
-      google.maps.event.addListener(marker, 'click', (function (marker, i) {
-        return function () {
-          infowindow.setContent(locations[i][0]);
-          infowindow.open(map, marker);
-        }
-      })(marker, i));
-    }
-
-
-  });
-
-  }
-
-
-
-
-
-
-</script>
