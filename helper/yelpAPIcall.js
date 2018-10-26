@@ -26,7 +26,7 @@ module.exports = function yelpApi(input) {
                 var closed = result.is_closed;
                 var url = result.url;
                 var lat = result.coordinates.latitude;
-                var long = result.coordinates.longitude;
+                var lng = result.coordinates.longitude;
                 var street = result.location.address1;
                 var city = result.location.city;
                 var zip = result.location.zip_code;
@@ -106,7 +106,7 @@ module.exports = function yelpApi(input) {
                         closed: closed,
                         url: url,
                         lat: lat,
-                        long: long,
+                        lng: lng,
                         street: street,
                         city: city,
                         zip: zip,
