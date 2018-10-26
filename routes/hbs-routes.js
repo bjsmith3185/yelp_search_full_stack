@@ -58,17 +58,11 @@ module.exports = function (app) {
     // combo page, combo.handlbars
     app.get("/combo", function (req, res) {
         db.Yelps.findAll({
-            // limit: 1,
-            // where: {
-            //   //your where conditions, or without them if you need ANY entry
-            // },
+           
             order: [ [ 'createdAt', 'DESC' ]]
           }).then(function (data) {
               console.log("inside /combo")
-            //   console.log(data[0].dataValues.lat);
-            //   console.log(data[0].dataValues.long);
-            //   console.log(process.env.GOOGLE_API_KEY)
-           
+                      
             res.render("combo", {
                 key: process.env.GOOGLE_API_KEY,
                 lat: data[0].dataValues.lat,

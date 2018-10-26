@@ -1,3 +1,5 @@
+
+
 module.exports = function(sequelize, DataTypes) {
   var YelpDB = sequelize.define("Yelps", {
     yelpID: DataTypes.STRING,
