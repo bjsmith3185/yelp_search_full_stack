@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
-    "database": "yelp_practice",
-    "host": "localhost",
+    "username": "jr6vbs39bkea6mqq",
+    "password": "mupbt4lsgy8e20dy",
+    "database": "wvwsksv2owcvoa0d",
+    "host": "tkck4yllxdrw0bhi.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
     "dialect": "mysql"
   },
   "test": {
@@ -19,3 +19,4 @@
     "dialect": "mysql"
   }
 }
+

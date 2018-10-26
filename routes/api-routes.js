@@ -47,7 +47,7 @@ module.exports = function (app) {
                 closed: response.closed,
                 url: response.url,
                 lat: response.lat,
-                long: response.long,
+                lng: response.lng,
                 street: response.street,
                 city: response.city,
                 zip: response.zip,

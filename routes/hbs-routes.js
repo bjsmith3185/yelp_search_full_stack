@@ -45,7 +45,7 @@ module.exports = function (app) {
             res.render("map", {
                 key: process.env.GOOGLE_API_KEY,
                 lat: data[0].dataValues.lat,
-                long: data[0].dataValues.long,
+                lng: data[0].dataValues.lng,
                 info: "Each pin is a search result.",
                 msg: "This is the map results page!",
                 data: data,
@@ -72,7 +72,7 @@ module.exports = function (app) {
             res.render("combo", {
                 key: process.env.GOOGLE_API_KEY,
                 lat: data[0].dataValues.lat,
-                long: data[0].dataValues.long,
+                lng: data[0].dataValues.lng,
                 mapTitle: "Map Search Results",
                 listTitle: "List Search Results",
                 msg: "Showing the map with list!",
