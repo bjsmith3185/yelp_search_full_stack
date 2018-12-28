@@ -3,8 +3,8 @@
 
 function initMap() {
     $.get("/all/marker", function (data) {
-        console.log("inside the get request for /all/marker");
-        console.log(data)
+        // console.log("inside the get request for /all/marker");
+        // console.log(data)
         var locations = [];
         locations = data;
 
@@ -31,13 +31,22 @@ function initMap() {
                 }
             })(marker, i));
         }
-
-
     });
-
 };
 
 
+$(".remove").on("click", function () {
+
+    var id = $(this).attr("data-id");
+    // console.log("on click")
+    // console.log(id);
+    $.ajax({
+        method: "POST",
+        url: "/remove/" + id
+    }).then(function () {
+        location.reload();
+    });
+});
 
 
 

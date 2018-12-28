@@ -13,7 +13,7 @@
       type: "post",
       data: data
     }).then(function (data, err) {
-      console.log("sent to database, re routed to /combo")
+      // console.log("sent to database, re routed to /combo")
 
       location.assign("/combo");
 

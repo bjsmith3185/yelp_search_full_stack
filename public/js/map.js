@@ -3,8 +3,8 @@
 
 function initMap() {
     $.get("/all/marker", function (data) {
-        console.log("inside the get request for /all/marker");
-        console.log(data)
+        // console.log("inside the get request for /all/marker");
+        // console.log(data)
         var locations = [];
         locations = data;
 

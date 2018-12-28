@@ -25,7 +25,7 @@
         <h3>{{listTitle}}</h3>
         <div>
           {{#each data}}
-          <div>{{this.name}}</div>
+          <div>{{this.name}}  <button class="remove" data-id="{{this.yelpID}} ">Remove</button></div>
           <span>Rating: {{this.rating}}, </span>
           <span>Price: {{this.price}}, </span>
           <span> Phone: {{this.phone}}, </span>
